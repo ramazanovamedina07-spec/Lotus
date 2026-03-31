@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotus Mag | Истории красоты и ухода</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="mag-page">
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">LOTUS</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="mag.html" class="nav-link active">Журнал</a>
+                <a href="tests.html" class="nav-link">Тесты</a>
+                <a href="consultations.html" class="nav-link">Консультации</a>
+                <a href="account.html" class="nav-link"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="nav-link cart-icon"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main class="mag-layout">
+        <section class="mag-hero">
+            <div class="container">
+                <p class="mag-kicker">Lotus Mag</p>
+                <div class="mag-hero-top">
+                    <h1>Истории красоты, ароматов и ритуалов, к которым хочется возвращаться</h1>
+                    <p>
+                        Журнал Lotus о парфюмерии, модных домах, beauty-архивах и спокойных ритуалах ухода. Здесь мы собираем
+                        материалы, в которых красота раскрывается как история, атмосфера и вкус к деталям.
+                    </p>
+                </div>
+                <div class="mag-tags" aria-label="Темы журнала">
+                    <span>парфюмерия</span>
+                    <span>история моды</span>
+                    <span>beauty archive</span>
+                    <span>уход</span>
+                    <span>ритуалы</span>
+                    <span>skin culture</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="mag-lead">
+            <div class="container mag-lead-grid">
+                <a class="mag-card mag-card-feature mag-card-link" href="article-vintage-perfume.html" aria-label="Открыть статью о винтажных ароматах">
+                    <div class="mag-card-media">
+                        <img src="images/index/photo_2026-03-22_12-38-59.jpg" alt="Винтажная афиша в стиле ар-нуво">
+                    </div>
+                    <div class="mag-card-copy">
+                        <span class="mag-card-meta">парфюмерия • editorial</span>
+                        <h2>Дух эпохи: где искать винтажные ароматы и как хранить их дома</h2>
+                        <p>
+                            Спокойный и подробный гид для тех, кто любит редкие композиции: как отличить винтаж от просто старого
+                            флакона, на что смотреть перед покупкой и почему правильное хранение сохраняет характер аромата на годы.
+                        </p>
+                        <span class="mag-card-cta">Читать статью</span>
+                    </div>
+                </a>
+
+                <a class="mag-card mag-card-secondary mag-card-link" href="article-dior-house.html" aria-label="Открыть статью про дом Dior">
+                    <div class="mag-card-media">
+                        <img src="images/index/photo_2026-03-22_12-39-08.jpg" alt="Винтажный постер Christian Dior">
+                    </div>
+                    <div class="mag-card-copy">
+                        <span class="mag-card-meta">fashion house • fragrance archive</span>
+                        <h2>Дом Dior: как мода, цветы и аромат стали одним образом</h2>
+                        <p>
+                            Подробный материал о том, как Dior превратил красоту в целый язык: от силуэта и рекламного образа
+                            до парфюмерии, цветочных мотивов и ощущения роскоши, которое живет дольше сезона.
+                        </p>
+                        <span class="mag-card-cta">Читать статью</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="mag-paired">
+            <div class="container">
+                <div class="mag-section-heading">
+                    <p class="eyebrow">More stories</p>
+                    <h2>Еще истории Lotus Mag</h2>
+                </div>
+
+                <div class="mag-lead-grid">
+                    <a class="mag-card mag-card-feature mag-card-link" href="article-geisha-beauty.html" aria-label="Открыть статью про японский макияж">
+                        <div class="mag-card-media">
+                            <img src="images/index/face-clean-main.jpg" alt="Гейши и японский макияж">
+                        </div>
+                        <div class="mag-card-copy">
+                            <span class="mag-card-meta">japan • beauty history</span>
+                            <h2>Гейши и белизна: секреты японского макияжа</h2>
+                            <p>
+                                История сложной эстетики, в которой красота была частью культуры, дисциплины и тонкого сценического образа.
+                            </p>
+                            <span class="mag-card-cta">Читать статью</span>
+                        </div>
+                    </a>
+
+                    <a class="mag-card mag-card-secondary mag-card-link" href="article-japan-lips.html" aria-label="Открыть статью про уход в Японии">
+                        <div class="mag-card-media">
+                            <img src="images/index/lips-hero.jpg" alt="Уход за губами в Японии">
+                        </div>
+                        <div class="mag-card-copy">
+                            <span class="mag-card-meta">beauty history • lips</span>
+                            <h2>Как ухаживали за губами и кожей в Японии</h2>
+                            <p>
+                                Древние привычки, которые и сегодня звучат удивительно современно: мягкий ритм, деликатность
+                                и уважение к естественной красоте кожи.
+                            </p>
+                            <span class="mag-card-cta">Читать статью</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mag-lead-grid">
+                    <a class="mag-card mag-card-feature mag-card-link" href="article-victorian-beauty.html" aria-label="Открыть статью о викторианской красоте">
+                        <div class="mag-card-media">
+                            <img src="images/index/product-powder.jpg" alt="Викторианская косметика">
+                        </div>
+                        <div class="mag-card-copy">
+                            <span class="mag-card-meta">victorian era • archive</span>
+                            <h2>Викторианская красота: опасные ингредиенты и первые кремы</h2>
+                            <p>
+                                Бледность как идеал, спорные формулы и начало того ухода, который позже превратился в ежедневную привычку.
+                            </p>
+                            <span class="mag-card-cta">Читать статью</span>
+                        </div>
+                    </a>
+
+                    <a class="mag-card mag-card-secondary mag-card-link" href="article-hyaluronic-acid.html" aria-label="Открыть статью про гиалуроновую кислоту">
+                        <div class="mag-card-media">
+                            <img src="images/index/hero-beauty-1.jpg" alt="Гиалуроновая кислота">
+                        </div>
+                        <div class="mag-card-copy">
+                            <span class="mag-card-meta">ingredients • guide</span>
+                            <h2>Что такое гиалуроновая кислота и почему она в каждом креме</h2>
+                            <p>
+                                Понятное объяснение без перегруза: как работает гиалуроновая кислота, кому она нужна и почему не все
+                                формулы одинаково полезны.
+                            </p>
+                            <span class="mag-card-cta">Читать статью</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mag-lead-grid">
+                    <a class="mag-card mag-card-feature mag-card-link" href="article-retinol-myths.html" aria-label="Открыть статью про ретинол">
+                        <div class="mag-card-media">
+                            <img src="images/index/hero-lotus.jpg" alt="Ретинол: мифы и правда">
+                        </div>
+                        <div class="mag-card-copy">
+                            <span class="mag-card-meta">retinol • myths</span>
+                            <h2>Ретинол: друг или враг? Разбираем мифы</h2>
+                            <p>
+                                Кому он подходит, как начать без раздражения и где заканчиваются страшилки, а начинается рабочий уход.
+                            </p>
+                            <span class="mag-card-cta">Читать статью</span>
+                        </div>
+                    </a>
+
+                    <a class="mag-card mag-card-secondary mag-card-link" href="article-kbeauty-vs-europe.html" aria-label="Открыть статью о корейском и европейском уходе">
+                        <div class="mag-card-media">
+                            <img src="images/index/hero-main.jpg" alt="Корейский и европейский уход">
+                        </div>
+                        <div class="mag-card-copy">
+                            <span class="mag-card-meta">k-beauty • europe</span>
+                            <h2>Корейский уход vs европейский: в чем разница</h2>
+                            <p>
+                                Многослойность против минимализма, glow против барьерного комфорта и две разные философии beauty-ухода.
+                            </p>
+                            <span class="mag-card-cta">Читать статью</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mag-lead-grid">
+                    <a class="mag-card mag-card-feature mag-card-link" href="article-skin-stress.html" aria-label="Открыть статью про стресс и кожу">
+                        <div class="mag-card-media">
+                            <img src="images/index/lotion-face.jpg" alt="Кожа и стресс">
+                        </div>
+                        <div class="mag-card-copy">
+                            <span class="mag-card-meta">skin • stress</span>
+                            <h2>Кожа и стресс: почему высыпания появляются перед важным днем</h2>
+                            <p>
+                                Как сон, напряжение и нервная система отражаются на лице и почему иногда лучший уход начинается с режима.
+                            </p>
+                            <span class="mag-card-cta">Читать статью</span>
+                        </div>
+                    </a>
+
+                    <a class="mag-card mag-card-secondary mag-card-link" href="article-shaving-guide.html" aria-label="Открыть статью про бритье без раздражения">
+                        <div class="mag-card-media">
+                            <img src="images/index/category-men1.jpg" alt="Бритье без раздражения">
+                        </div>
+                        <div class="mag-card-copy">
+                            <span class="mag-card-meta">men care • shave guide</span>
+                            <h2>Бритье без раздражения: средства и техники</h2>
+                            <p>
+                                Практичный гид для мужчин: подготовка кожи, правильное скольжение, мягкое очищение после бритья
+                                и минимизация покраснений.
+                            </p>
+                            <span class="mag-card-cta">Читать статью</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lotus. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

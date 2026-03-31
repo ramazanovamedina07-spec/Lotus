@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - Lotus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="catalog-modern">
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">LOTUS</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link active">Каталог</a>
+                <a href="consultations.html" class="nav-link">Консультации</a>
+                <a href="index.html#ai" class="nav-link">AI помощник</a>
+                <a href="account.html" class="nav-link">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html" class="nav-link cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main class="catalog-page catalog-modern-page">
+        <div class="container catalog-modern-container">
+            <div class="catalog-hero">
+                <div>
+                    <p class="eyebrow">Каталог</p>
+                    <h1 class="page-title">Каталог продукции</h1>
+                </div>
+                <div class="catalog-tools">
+                    <select id="sortFilter" class="catalog-select">
+                        <option value="default">Сортировка</option>
+                        <option value="price-asc">Цена: по возрастанию</option>
+                        <option value="price-desc">Цена: по убыванию</option>
+                        <option value="name">По названию</option>
+                    </select>
+                    <div class="search-box catalog-search">
+                        <input type="text" id="searchInput" placeholder="Поиск по названию...">
+                        <button id="searchBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="catalog-layout">
+                <div class="catalog-left">
+                    <aside class="catalog-side">
+                        <p class="catalog-side-title">Категории</p>
+                        <nav class="catalog-menu">
+                            <button class="catalog-menu-item is-active" data-category="all" type="button">Все товары</button>
+                            <button class="catalog-menu-item" data-category="face" type="button">Уход за лицом</button>
+                            <button class="catalog-menu-item" data-category="hair" type="button">Уход за волосами</button>
+                            <button class="catalog-menu-item" data-category="body" type="button">Уход за телом</button>
+                            <button class="catalog-menu-item" data-category="perfume" type="button">Парфюмерия</button>
+                            <button class="catalog-menu-item" data-category="men" type="button">Для мужчин</button>
+                        </nav>
+                    </aside>
+
+                    <aside class="catalog-submenu">
+                        <div class="catalog-submenu-head">
+                            <p class="eyebrow">Раздел</p>
+                            <h2 id="catalogSubTitle">Все товары</h2>
+                        </div>
+                        <ul class="catalog-submenu-list" id="catalogSubmenuList"></ul>
+                    </aside>
+                </div>
+
+                <section class="catalog-products">
+                    <select id="categoryFilter" class="visually-hidden">
+                        <option value="all">Все категории</option>
+                        <option value="face">Уход за лицом</option>
+                        <option value="hair">Уход за волосами</option>
+                        <option value="body">Уход за телом</option>
+                        <option value="perfume">Духи</option>
+                        <option value="men">Для мужчин</option>
+                    </select>
+
+                    <div class="products-grid" id="catalogProducts">
+                        <div class="loading-spinner">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Загрузка товаров...</p>
+                        </div>
+                    </div>
+
+                    <div class="pagination" id="pagination"></div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>LOTUS</h3>
+                    <p>Косметика с философией чистоты.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Каталог</h4>
+                    <a href="catalog.html?category=face">Уход за лицом</a>
+                    <a href="catalog.html?category=hair">Уход за волосами</a>
+                    <a href="catalog.html?category=body">Уход за телом</a>
+                    <a href="catalog.html?category=perfume">Духи</a>
+                    <a href="catalog.html?category=men">Для мужчин</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-envelope"></i> info@lotus.ru</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lotus. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="css/js/api.js"></script>
+    <script src="css/js/main.js"></script>
+    <script src="css/js/cart.js"></script>
+    <script src="css/js/catalog.js"></script>
+</body>
+</html>
+

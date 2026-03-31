@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тесты | Lotus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="lotus-app-page lotus-scene-tests">
+    <div class="lotus-app-scene">
+        <div class="lotus-window-shell">
+            <header class="header">
+                <div class="container header-container">
+                    <a href="index.html" class="logo">LOTUS</a>
+
+                    <nav class="nav">
+                        <a href="index.html" class="nav-link">Главная</a>
+                        <a href="catalog.html" class="nav-link">Каталог</a>
+                        <a href="mag.html" class="nav-link">Журнал</a>
+                        <a href="tests.html" class="nav-link active">Тесты</a>
+                        <a href="consultations.html" class="nav-link">Консультации</a>
+                        <a href="gift-cards.html" class="nav-link">Подарочные карты</a>
+                        <a href="account.html" class="nav-link" aria-label="Личный кабинет">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <a href="cart.html" class="nav-link cart-icon" aria-label="Корзина">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                    </nav>
+
+                    <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </header>
+
+            <main class="lotus-app-main tests-desktop-page">
+                <div class="lotus-screen-shell lotus-screen-shell-centered">
+                    <header class="tests-desktop-head">
+                        <h1 class="lotus-screen-title lotus-screen-title-centered" id="testsPageTitle">Тест кожи</h1>
+                        <p class="lotus-screen-subtitle" id="testsPageSubtitle">Узнайте свой тип кожи за несколько вопросов</p>
+                    </header>
+
+                    <div class="tests-desktop-switcher">
+                        <button type="button" class="tests-desktop-chip" data-open-test="skin">Кожа</button>
+                        <button type="button" class="tests-desktop-chip" data-open-test="hair">Волосы</button>
+                        <button type="button" class="tests-desktop-chip" data-open-test="aroma">Аромат</button>
+                        <button type="button" class="tests-desktop-chip" data-open-test="stress">Стресс</button>
+                        <button type="button" class="tests-desktop-chip" data-open-test="gift">Подарок</button>
+                        <button type="button" class="tests-desktop-chip" data-open-test="color">Цветотип</button>
+                    </div>
+
+                    <section class="style-test-quiz tests-desktop-quiz" id="quiz">
+                        <article class="style-test-panel" data-test-panel="color">
+                            <div class="tests-desktop-card">
+                                <div class="tests-desktop-progress">
+                                    <div class="tests-desktop-progress-bar"><span data-step-fill></span></div>
+                                    <div class="tests-desktop-progress-label" data-step-label>Вопрос 1 из 5</div>
+                                </div>
+
+                                <form data-test-form="color" class="style-test-form">
+                                    <fieldset>
+                                        <legend>Натуральный цвет волос</legend>
+                                        <label><input type="radio" name="q1" value="summer" required> Светло-пепельный блонд или русый с холодным подтоном</label>
+                                        <label><input type="radio" name="q1" value="summer"> Средне-русый или пепельно-русый</label>
+                                        <label><input type="radio" name="q1" value="spring"> Светлый золотистый или медовый блонд</label>
+                                        <label><input type="radio" name="q1" value="autumn"> Теплый каштан, медный, рыжеватый</label>
+                                        <label><input type="radio" name="q1" value="winter"> Темный холодный шатен или почти черный</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Цвет глаз</legend>
+                                        <label><input type="radio" name="q2" value="summer" required> Светло-серые, серо-голубые, мягкие серо-зеленые</label>
+                                        <label><input type="radio" name="q2" value="summer"> Серо-карие, приглушенные</label>
+                                        <label><input type="radio" name="q2" value="spring"> Светлые и чистые: голубые, зелено-голубые</label>
+                                        <label><input type="radio" name="q2" value="autumn"> Теплые: ореховые, янтарные, зелено-карие</label>
+                                        <label><input type="radio" name="q2" value="winter"> Контрастные: темно-карие, ярко-синие, ледяные</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Как кожа загорает?</legend>
+                                        <label><input type="radio" name="q3" value="summer" required> Плохо загорает, сначала краснеет</label>
+                                        <label><input type="radio" name="q3" value="winter"> Может обгореть, потом уходит в оливковый тон</label>
+                                        <label><input type="radio" name="q3" value="spring"> Легко уходит в мягкий светло-золотистый загар</label>
+                                        <label><input type="radio" name="q3" value="autumn"> Быстро уходит в теплый золотисто-бронзовый загар</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>На какой колорит вы больше похожи?</legend>
+                                        <p class="style-test-small">Можно выбрать от 1 до 3 вариантов.</p>
+                                        <label><input type="checkbox" name="q4" value="summer"> Мягкий и холодный колорит</label>
+                                        <label><input type="checkbox" name="q4" value="winter"> Яркий контрастный холодный колорит</label>
+                                        <label><input type="checkbox" name="q4" value="spring"> Светлый теплый колорит</label>
+                                        <label><input type="checkbox" name="q4" value="autumn"> Теплый природный глубокий колорит</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Какие металлы гармоничнее?</legend>
+                                        <label><input type="radio" name="q5" value="summer" required> Приглушенное серебро</label>
+                                        <label><input type="radio" name="q5" value="winter"> Яркое серебро и белое золото</label>
+                                        <label><input type="radio" name="q5" value="spring"> Светлое желтое золото</label>
+                                        <label><input type="radio" name="q5" value="autumn"> Желтое золото, бронза, латунь</label>
+                                    </fieldset>
+
+                                    <div class="tests-desktop-actions">
+                                        <button type="button" class="tests-desktop-nav" data-step-back>Назад</button>
+                                        <button type="button" class="tests-desktop-nav" data-step-next>Далее</button>
+                                        <button type="submit" class="style-test-btn style-test-btn-primary tests-desktop-submit" data-step-submit hidden>Получить результат</button>
+                                    </div>
+                                </form>
+
+                                <div class="style-test-result" data-test-result="color" aria-live="polite"></div>
+                            </div>
+                        </article>
+
+                        <article class="style-test-panel" data-test-panel="skin">
+                            <div class="tests-desktop-card">
+                                <div class="tests-desktop-progress">
+                                    <div class="tests-desktop-progress-bar"><span data-step-fill></span></div>
+                                    <div class="tests-desktop-progress-label" data-step-label>Вопрос 1 из 4</div>
+                                </div>
+
+                                <form data-test-form="skin" class="style-test-form">
+                                    <fieldset>
+                                        <legend>Как ваша кожа чувствует себя после умывания?</legend>
+                                        <label><input type="radio" name="q1" value="dry" required> Стянутость</label>
+                                        <label><input type="radio" name="q1" value="normal"> Комфортно</label>
+                                        <label><input type="radio" name="q1" value="oily"> Жирный блеск</label>
+                                        <label><input type="radio" name="q1" value="combination"> По-разному в разных зонах</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Как выглядят поры чаще всего?</legend>
+                                        <label><input type="radio" name="q2" value="dry" required> Почти незаметны</label>
+                                        <label><input type="radio" name="q2" value="normal"> Небольшие и ровные</label>
+                                        <label><input type="radio" name="q2" value="combination"> Расширены только в Т-зоне</label>
+                                        <label><input type="radio" name="q2" value="oily"> Расширены на большинстве зон</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Как кожа реагирует на активные средства?</legend>
+                                        <label><input type="radio" name="q3" value="sensitive" required> Часто краснеет и щиплет</label>
+                                        <label><input type="radio" name="q3" value="dry"> Быстро пересушивается</label>
+                                        <label><input type="radio" name="q3" value="combination"> Зависит от зоны нанесения</label>
+                                        <label><input type="radio" name="q3" value="oily"> Обычно переносит хорошо</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Как ведет себя кожа в течение дня?</legend>
+                                        <label><input type="radio" name="q4" value="dry" required> Подчеркивает сухость</label>
+                                        <label><input type="radio" name="q4" value="normal"> Остается стабильной</label>
+                                        <label><input type="radio" name="q4" value="combination"> Блестит только Т-зона</label>
+                                        <label><input type="radio" name="q4" value="oily"> Быстро становится очень блестящей</label>
+                                    </fieldset>
+
+                                    <div class="tests-desktop-actions">
+                                        <button type="button" class="tests-desktop-nav" data-step-back>Назад</button>
+                                        <button type="button" class="tests-desktop-nav" data-step-next>Далее</button>
+                                        <button type="submit" class="style-test-btn style-test-btn-primary tests-desktop-submit" data-step-submit hidden>Получить результат</button>
+                                    </div>
+                                </form>
+
+                                <div class="style-test-result" data-test-result="skin" aria-live="polite"></div>
+                            </div>
+                        </article>
+
+                        <article class="style-test-panel" data-test-panel="hair">
+                            <div class="tests-desktop-card">
+                                <div class="tests-desktop-progress">
+                                    <div class="tests-desktop-progress-bar"><span data-step-fill></span></div>
+                                    <div class="tests-desktop-progress-label" data-step-label>Вопрос 1 из 4</div>
+                                </div>
+
+                                <form data-test-form="hair" class="style-test-form">
+                                    <fieldset>
+                                        <legend>После естественной сушки волосы...</legend>
+                                        <label><input type="radio" name="q1" value="straight" required> Почти полностью прямые</label>
+                                        <label><input type="radio" name="q1" value="wavy"> Ложатся мягкой волной</label>
+                                        <label><input type="radio" name="q1" value="curly"> Формируют выраженные кудри</label>
+                                        <label><input type="radio" name="q1" value="coily"> Формируют плотные пружинки</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Во влажную погоду...</legend>
+                                        <label><input type="radio" name="q2" value="straight" required> Форма почти не меняется</label>
+                                        <label><input type="radio" name="q2" value="wavy"> Усиливается волна и пушистость</label>
+                                        <label><input type="radio" name="q2" value="curly"> Завиток становится четче</label>
+                                        <label><input type="radio" name="q2" value="coily"> Завиток заметно сжимается</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Что держится лучше?</legend>
+                                        <label><input type="radio" name="q3" value="straight" required> Гладкость и прикорневой объем</label>
+                                        <label><input type="radio" name="q3" value="wavy"> Легкая текстура и спреи</label>
+                                        <label><input type="radio" name="q3" value="curly"> Кремы и гели для завитка</label>
+                                        <label><input type="radio" name="q3" value="coily"> Плотные leave-in и масла</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Основная проблема длины</legend>
+                                        <label><input type="radio" name="q4" value="straight" required> Теряется объем</label>
+                                        <label><input type="radio" name="q4" value="wavy"> Пушится по длине</label>
+                                        <label><input type="radio" name="q4" value="curly"> Не хватает увлажнения кончикам</label>
+                                        <label><input type="radio" name="q4" value="coily"> Ломкость и сухость</label>
+                                    </fieldset>
+
+                                    <div class="tests-desktop-actions">
+                                        <button type="button" class="tests-desktop-nav" data-step-back>Назад</button>
+                                        <button type="button" class="tests-desktop-nav" data-step-next>Далее</button>
+                                        <button type="submit" class="style-test-btn style-test-btn-primary tests-desktop-submit" data-step-submit hidden>Получить результат</button>
+                                    </div>
+                                </form>
+
+                                <div class="style-test-result" data-test-result="hair" aria-live="polite"></div>
+                            </div>
+                        </article>
+
+                        <article class="style-test-panel" data-test-panel="aroma">
+                            <div class="tests-desktop-card">
+                                <div class="tests-desktop-progress">
+                                    <div class="tests-desktop-progress-bar"><span data-step-fill></span></div>
+                                    <div class="tests-desktop-progress-label" data-step-label>Вопрос 1 из 4</div>
+                                </div>
+
+                                <form data-test-form="aroma" class="style-test-form">
+                                    <fieldset>
+                                        <legend>Какое настроение аромата вам ближе?</legend>
+                                        <label><input type="radio" name="q1" value="fresh" required> Чистота и легкость</label>
+                                        <label><input type="radio" name="q1" value="floral"> Нежность и цветы</label>
+                                        <label><input type="radio" name="q1" value="woody"> Спокойствие и глубина</label>
+                                        <label><input type="radio" name="q1" value="oriental"> Тепло и вечерняя энергия</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Когда чаще носите аромат?</legend>
+                                        <label><input type="radio" name="q2" value="fresh" required> Днем, в офисе или на учебе</label>
+                                        <label><input type="radio" name="q2" value="floral"> Универсально и днем и вечером</label>
+                                        <label><input type="radio" name="q2" value="woody"> Ближе к вечеру</label>
+                                        <label><input type="radio" name="q2" value="oriental"> На выход и события</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Какой ингредиент нравится больше?</legend>
+                                        <label><input type="radio" name="q3" value="fresh" required> Цитрус и зеленый чай</label>
+                                        <label><input type="radio" name="q3" value="floral"> Роза, пион, жасмин</label>
+                                        <label><input type="radio" name="q3" value="woody"> Кедр, сандал, ветивер</label>
+                                        <label><input type="radio" name="q3" value="oriental"> Ваниль, амбра, специи</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Какой формат ухода ближе?</legend>
+                                        <label><input type="radio" name="q4" value="fresh" required> Легкие гели и спреи</label>
+                                        <label><input type="radio" name="q4" value="floral"> Кремы и мисты</label>
+                                        <label><input type="radio" name="q4" value="woody"> Более плотные текстуры</label>
+                                        <label><input type="radio" name="q4" value="oriental"> Масла и баттеры</label>
+                                    </fieldset>
+
+                                    <div class="tests-desktop-actions">
+                                        <button type="button" class="tests-desktop-nav" data-step-back>Назад</button>
+                                        <button type="button" class="tests-desktop-nav" data-step-next>Далее</button>
+                                        <button type="submit" class="style-test-btn style-test-btn-primary tests-desktop-submit" data-step-submit hidden>Получить результат</button>
+                                    </div>
+                                </form>
+
+                                <div class="style-test-result" data-test-result="aroma" aria-live="polite"></div>
+                            </div>
+                        </article>
+
+                        <article class="style-test-panel" data-test-panel="stress">
+                            <div class="tests-desktop-card">
+                                <div class="tests-desktop-progress">
+                                    <div class="tests-desktop-progress-bar"><span data-step-fill></span></div>
+                                    <div class="tests-desktop-progress-label" data-step-label>Вопрос 1 из 4</div>
+                                </div>
+
+                                <form data-test-form="stress" class="style-test-form">
+                                    <fieldset>
+                                        <legend>После напряженной недели кожа чаще всего...</legend>
+                                        <label><input type="radio" name="q1" value="low" required> Почти не меняется</label>
+                                        <label><input type="radio" name="q1" value="moderate"> Становится тусклой</label>
+                                        <label><input type="radio" name="q1" value="high"> Реагирует высыпаниями</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Как вы спите в последние недели?</legend>
+                                        <label><input type="radio" name="q2" value="low" required> Стабильно и достаточно</label>
+                                        <label><input type="radio" name="q2" value="moderate"> Периодически недосыпаю</label>
+                                        <label><input type="radio" name="q2" value="high"> Часто мало сна и усталость</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Уровень чувствительности кожи сейчас</legend>
+                                        <label><input type="radio" name="q3" value="low" required> Обычный, как раньше</label>
+                                        <label><input type="radio" name="q3" value="moderate"> Периодически краснеет</label>
+                                        <label><input type="radio" name="q3" value="high"> Часто жжение и дискомфорт</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Сколько времени есть на уход?</legend>
+                                        <label><input type="radio" name="q4" value="low" required> 10-15 минут, рутина стабильная</label>
+                                        <label><input type="radio" name="q4" value="moderate"> 5-10 минут, иногда пропускаю этапы</label>
+                                        <label><input type="radio" name="q4" value="high"> Меньше 5 минут, уход нерегулярный</label>
+                                    </fieldset>
+
+                                    <div class="tests-desktop-actions">
+                                        <button type="button" class="tests-desktop-nav" data-step-back>Назад</button>
+                                        <button type="button" class="tests-desktop-nav" data-step-next>Далее</button>
+                                        <button type="submit" class="style-test-btn style-test-btn-primary tests-desktop-submit" data-step-submit hidden>Получить результат</button>
+                                    </div>
+                                </form>
+
+                                <div class="style-test-result" data-test-result="stress" aria-live="polite"></div>
+                            </div>
+                        </article>
+
+                        <article class="style-test-panel" data-test-panel="gift">
+                            <div class="tests-desktop-card">
+                                <div class="tests-desktop-progress">
+                                    <div class="tests-desktop-progress-bar"><span data-step-fill></span></div>
+                                    <div class="tests-desktop-progress-label" data-step-label>Вопрос 1 из 4</div>
+                                </div>
+
+                                <form data-test-form="gift" class="style-test-form">
+                                    <fieldset>
+                                        <legend>Для кого подарок?</legend>
+                                        <label><input type="radio" name="q1" value="friend" required> Для подруги</label>
+                                        <label><input type="radio" name="q1" value="mom"> Для мамы</label>
+                                        <label><input type="radio" name="q1" value="self"> Для себя</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Какой бюджет комфортен?</legend>
+                                        <label><input type="radio" name="q2" value="friend" required> До 3000 ₸</label>
+                                        <label><input type="radio" name="q2" value="mom"> 3000-6000 ₸</label>
+                                        <label><input type="radio" name="q2" value="self"> 6000+ ₸</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Какой формат подарка ближе?</legend>
+                                        <label><input type="radio" name="q3" value="friend" required> Легкий и универсальный</label>
+                                        <label><input type="radio" name="q3" value="mom"> Уходовый и практичный</label>
+                                        <label><input type="radio" name="q3" value="self"> Премиальный и для себя</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>Что хочется подчеркнуть подарком?</legend>
+                                        <label><input type="radio" name="q4" value="friend" required> Настроение и эмоции</label>
+                                        <label><input type="radio" name="q4" value="mom"> Заботу и комфорт</label>
+                                        <label><input type="radio" name="q4" value="self"> Личный стиль и качество</label>
+                                    </fieldset>
+
+                                    <div class="tests-desktop-actions">
+                                        <button type="button" class="tests-desktop-nav" data-step-back>Назад</button>
+                                        <button type="button" class="tests-desktop-nav" data-step-next>Далее</button>
+                                        <button type="submit" class="style-test-btn style-test-btn-primary tests-desktop-submit" data-step-submit hidden>Получить результат</button>
+                                    </div>
+                                </form>
+
+                                <div class="style-test-result" data-test-result="gift" aria-live="polite"></div>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="css/js/api.js"></script>
+    <script src="css/js/main.js"></script>
+    <script src="css/js/tests.js"></script>
+</body>
+</html>

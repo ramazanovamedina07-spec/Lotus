@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой аккаунт | Lotus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="lotus-app-page lotus-scene-account">
+    <div class="lotus-app-scene">
+        <div class="lotus-window-shell">
+            <header class="header">
+                <div class="container header-container">
+                    <a href="index.html" class="logo">LOTUS</a>
+
+                    <nav class="nav">
+                        <a href="index.html" class="nav-link">Главная</a>
+                        <a href="catalog.html" class="nav-link">Каталог</a>
+                        <a href="mag.html" class="nav-link">Журнал</a>
+                        <a href="tests.html" class="nav-link">Тесты</a>
+                        <a href="consultations.html" class="nav-link">Консультации</a>
+                        <a href="gift-cards.html" class="nav-link">Подарочные карты</a>
+                        <a href="account.html" class="nav-link active" aria-label="Личный кабинет">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <a href="cart.html" class="nav-link cart-icon" aria-label="Корзина">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                    </nav>
+
+                    <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </header>
+
+            <main class="lotus-app-main account-desktop-page">
+                <div class="lotus-screen-shell">
+                    <h1 class="lotus-screen-title">Мой аккаунт</h1>
+
+                    <article class="account-hero-card">
+                        <div class="account-hero-avatar-block">
+                            <input type="file" id="avatarInput" accept="image/*" hidden>
+                            <button type="button" class="account-hero-avatar" id="avatarUploadBtn" aria-label="Загрузить фото профиля">
+                                <img id="profileAvatar" class="profile-avatar-image" alt="Фото профиля" hidden>
+                                <span id="avatarPlaceholder" class="account-hero-avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </button>
+                            <button type="button" class="account-hero-avatar-remove" id="avatarRemoveBtn">Удалить фото</button>
+                        </div>
+
+                        <div class="account-hero-copy">
+                            <h2 id="profile-name">—</h2>
+                            <p id="profile-email">—</p>
+                            <div class="account-hero-phone">
+                                <span id="profile-phone">Не указан</span>
+                                <button class="account-inline-action" id="copyPhoneBtn" type="button" aria-label="Изменить или скопировать телефон">
+                                    <i class="far fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <div class="account-quick-list">
+                        <button class="account-quick-card account-tab-trigger active" type="button" data-account-target="orders">
+                            <span class="account-quick-icon"><i class="far fa-box"></i></span>
+                            <span class="account-quick-copy">
+                                <strong>Мои заказы</strong>
+                                <small>История и статус заказов</small>
+                            </span>
+                        </button>
+
+                        <button class="account-quick-card account-tab-trigger" type="button" data-account-target="tests">
+                            <span class="account-quick-icon"><i class="far fa-clipboard"></i></span>
+                            <span class="account-quick-copy">
+                                <strong>Мои тесты</strong>
+                                <small>Последние результаты и быстрый переход</small>
+                            </span>
+                        </button>
+
+                        <button class="account-quick-card account-tab-trigger" type="button" data-account-target="settings">
+                            <span class="account-quick-icon"><i class="fas fa-gear"></i></span>
+                            <span class="account-quick-copy">
+                                <strong>Настройки</strong>
+                                <small>Адрес, пароль, уведомления</small>
+                            </span>
+                        </button>
+
+                        <button class="account-quick-card account-quick-card-button" id="logoutBtn" type="button">
+                            <span class="account-quick-icon"><i class="fas fa-arrow-right-from-bracket"></i></span>
+                            <span class="account-quick-copy">
+                                <strong>Выйти</strong>
+                                <small>Завершить сессию</small>
+                            </span>
+                        </button>
+                    </div>
+
+                    <section class="account-detail-card account-panel active" id="accountOrders" data-account-panel="orders">
+                        <div class="account-detail-head">
+                            <h3>Мои заказы</h3>
+                            <a href="cart.html">Открыть корзину</a>
+                        </div>
+                        <div id="ordersList" class="account-orders-list"></div>
+                    </section>
+
+                    <section class="account-detail-card account-panel" id="accountTests" data-account-panel="tests">
+                        <div class="account-detail-head">
+                            <h3>Мои тесты</h3>
+                            <a href="tests.html?test=skin">Перейти к тестам</a>
+                        </div>
+                        <div id="testResults" class="account-tests"></div>
+                    </section>
+
+                    <section class="account-detail-card account-panel" id="accountSettings" data-account-panel="settings">
+                        <div class="account-detail-head">
+                            <h3>Настройки профиля</h3>
+                        </div>
+                        <div class="account-settings-list">
+                            <article class="account-setting-item">
+                                <div>
+                                    <span class="account-setting-label">Имя</span>
+                                    <strong id="user-name">Ваш профиль Lotus</strong>
+                                </div>
+                                <button class="account-inline-action" id="editNameBtn" type="button" aria-label="Редактировать имя">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                            </article>
+
+                            <article class="account-setting-item">
+                                <div>
+                                    <span class="account-setting-label">Email</span>
+                                    <strong id="profile-info-text">Почта для входа и уведомлений</strong>
+                                </div>
+                            </article>
+                        </div>
+
+                        <form class="account-edit-form" id="accountEditForm">
+                            <div class="account-edit-grid">
+                                <label class="account-edit-field">
+                                    <span>Имя</span>
+                                    <input type="text" id="profileNameInput" placeholder="Введите имя">
+                                </label>
+                                <label class="account-edit-field">
+                                    <span>Телефон</span>
+                                    <input type="text" id="profilePhoneInput" placeholder="Введите номер телефона">
+                                </label>
+                            </div>
+                            <div class="account-edit-actions">
+                                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                                <p class="account-edit-feedback" id="accountEditFeedback" aria-live="polite"></p>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="css/js/api.js"></script>
+    <script src="css/js/main.js"></script>
+    <script src="css/js/auth.js"></script>
+    <script src="css/js/account.js"></script>
+    <script src="css/js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отслеживание и возврат - Lotus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""
+    >
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">LOTUS</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="tests.html" class="nav-link">Тесты</a>
+                <a href="delivery-info.html" class="nav-link">Доставка</a>
+                <a href="#returnForm" class="nav-link">Возврат</a>
+                <a href="account.html" class="nav-link"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="nav-link cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main class="catalog-page">
+        <div class="container">
+            <h1 class="page-title">Отслеживание доставки</h1>
+            <p class="section-subtitle" style="margin-bottom: 20px;">
+                Нужны сроки и условия? Откройте отдельную страницу:
+                <a href="delivery-info.html"><strong>Доставка</strong></a>.
+            </p>
+
+            <section class="delivery-track-shell">
+                <div class="delivery-track-top">
+                    <h2>Отследить заказ</h2>
+                    <p>Введите номер заказа и email, указанный при оформлении.</p>
+                </div>
+
+                <form id="trackOrderForm" class="delivery-track-form">
+                    <input id="trackOrderId" type="number" min="1" placeholder="Номер заказа, например 125" required>
+                    <input id="trackOrderEmail" type="email" placeholder="Email из заказа" required>
+                    <button type="submit" class="btn btn-primary">Отследить</button>
+                </form>
+
+                <div id="deliveryTrackResult" class="delivery-track-result" aria-live="polite"></div>
+            </section>
+
+            <section class="delivery-track-shell mt-20" id="myOrdersTrackShell">
+                <div class="delivery-track-top">
+                    <h2>Мои заказы</h2>
+                    <p>Быстрый переход к отслеживанию для авторизованных пользователей.</p>
+                </div>
+                <div id="myOrdersTrackList" class="delivery-my-orders">
+                    <p class="delivery-muted">Войдите в аккаунт, чтобы видеть список ваших заказов.</p>
+                </div>
+            </section>
+
+            <section class="return-shell mt-20">
+                <div class="return-layout">
+                    <div>
+                        <h2>Оформить возврат</h2>
+                        <p class="return-sub">Отправьте заявку за 1 минуту, мы проверим заказ и ответим на email.</p>
+
+                        <form id="returnForm" class="return-form">
+                            <div class="return-form-row">
+                                <input id="returnOrderId" type="number" min="1" placeholder="Номер заказа" required>
+                                <input id="returnEmail" type="email" placeholder="Email из заказа" required>
+                            </div>
+                            <select id="returnReason" required>
+                                <option value="">Причина возврата</option>
+                                <option value="Товар не подошел">Товар не подошел</option>
+                                <option value="Повреждение при доставке">Повреждение при доставке</option>
+                                <option value="Не тот товар">Не тот товар</option>
+                                <option value="Аллергическая реакция/непереносимость">Аллергическая реакция/непереносимость</option>
+                                <option value="Другая причина">Другая причина</option>
+                            </select>
+                            <textarea id="returnDetails" rows="4" placeholder="Комментарий (необязательно)"></textarea>
+                            <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                        </form>
+
+                        <div id="returnResult" class="return-result" aria-live="polite"></div>
+                    </div>
+
+                    <aside class="return-tip">
+                        <h3>Важно перед отправкой</h3>
+                        <ul class="return-rules">
+                            <li>Срок подачи заявки: до 14 дней с момента заказа.</li>
+                            <li>Сохраните товарный вид и упаковку.</li>
+                            <li>После подтверждения возврата деньги обычно поступают за 3-10 рабочих дней.</li>
+                        </ul>
+                    </aside>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lotus. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="css/js/api.js"></script>
+    <script src="css/js/main.js"></script>
+    <script src="css/js/cart.js"></script>
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""
+    ></script>
+    <script src="css/js/delivery.js"></script>
+    <script src="css/js/returns.js"></script>
+</body>
+</html>
+
+
+

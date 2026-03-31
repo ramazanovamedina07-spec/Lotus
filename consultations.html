@@ -1,0 +1,590 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Консультации | Lotus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .consult-page {
+            padding: 36px 0 70px;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(216, 190, 168, 0.18), transparent 35%),
+                radial-gradient(circle at 85% 15%, rgba(124, 144, 130, 0.18), transparent 40%),
+                linear-gradient(180deg, #fbf7f1 0%, #f4eee7 100%);
+        }
+        .consult-hero {
+            position: relative;
+            background:
+                radial-gradient(circle at 80% 10%, rgba(124, 144, 130, 0.16), transparent 40%),
+                linear-gradient(145deg, #ffffff 0%, #f7f1eb 58%, #f3ebe4 100%);
+            border: 1px solid rgba(230, 221, 212, 0.9);
+            border-radius: 24px;
+            padding: 26px 28px;
+            margin-bottom: 20px;
+            color: #2d2a27;
+            box-shadow: 0 18px 36px rgba(96, 80, 68, 0.12);
+        }
+        .consult-hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 18px;
+            align-items: center;
+        }
+        .consult-hero h1 {
+            color: #2b2724;
+            margin-bottom: 10px;
+            font-family: "Cormorant Garamond", "Times New Roman", serif;
+            font-size: clamp(2.1rem, 3.2vw, 3.2rem);
+        }
+        .consult-meta {
+            color: #5f554d;
+            max-width: 700px;
+            font-size: 1.02rem;
+        }
+        .consult-hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+        .consult-hero-actions .btn {
+            border-radius: 999px;
+            padding: 10px 18px;
+        }
+        .consult-hero-media {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .consult-hero-photo {
+            border-radius: 18px;
+            overflow: hidden;
+            background: #f3ece6;
+            box-shadow: 0 14px 26px rgba(90, 75, 62, 0.18);
+        }
+        .consult-hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .consult-panel-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #7c6d61;
+            margin-bottom: 10px;
+        }
+        .consult-panel-list {
+            display: grid;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .consult-panel-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(246, 241, 236, 0.9);
+            border-radius: 12px;
+            padding: 10px 12px;
+            font-weight: 600;
+        }
+        .consult-panel-list span {
+            color: #5e544d;
+            font-weight: 500;
+        }
+        .consult-panel-note {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: #72665f;
+        }
+        .consult-section-title {
+            margin: 24px 0 12px;
+            font-size: 1.4rem;
+            color: #2d2825;
+        }
+        .consult-grid {
+            display: none;
+        }
+        .consult-video-card {
+            background: #fff;
+            border: 1px solid rgba(230, 221, 212, 0.9);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 16px 32px rgba(50, 35, 23, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .consult-video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 34px rgba(50, 35, 23, 0.18);
+        }
+        .consult-video-card iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 0;
+            display: block;
+        }
+        .consult-video-content { padding: 14px 16px 16px; }
+        .consult-video-content h3 { font-size: 1.05rem; margin-bottom: 6px; }
+        .consult-video-content p { margin: 0; color: var(--color-text-light); font-size: 0.92rem; }
+        .consult-section-title {
+            margin: 24px 0 12px;
+            font-size: 1.4rem;
+            color: #2d2825;
+        }
+        .consult-card {
+            background: #fff;
+            border: 1px solid rgba(230, 221, 212, 0.9);
+            border-radius: 18px;
+            padding: 18px;
+            box-shadow: 0 10px 20px rgba(50, 35, 23, 0.08);
+        }
+        .consult-card h2 { color: var(--color-primary); margin-bottom: 10px; font-size: 1.4rem; }
+        .consult-card.consult-form-card {
+            background: linear-gradient(180deg, #ffffff 0%, #faf6f1 100%);
+        }
+        .consult-card.consult-info-card {
+            background: #ffffff;
+        }
+        .consult-badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+        .consult-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .consult-badge.free { background: #e3f8ea; color: #1d6a46; border: 1px solid #b8e4c9; }
+        .consult-badge.zoom { background: #eaf2ff; color: #2452a4; border: 1px solid #c9d9ff; }
+        .consult-form { display: grid; gap: 10px; margin-top: 10px; }
+        .consult-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .consult-form input, .consult-form select, .consult-form textarea {
+            width: 100%;
+            border: 1px solid #d7cbc2;
+            border-radius: 12px;
+            padding: 12px 14px;
+            font: inherit;
+            background: #fffdfb;
+        }
+        .consult-form input:focus, .consult-form select:focus, .consult-form textarea:focus {
+            outline: 2px solid rgba(124, 144, 130, 0.25);
+            border-color: #7c9082;
+        }
+        .consult-form textarea { min-height: 100px; resize: vertical; }
+        .consult-slot-help { font-size: 0.88rem; color: var(--color-text-light); }
+        .consult-check {
+            display: flex;
+            align-items: start;
+            gap: 8px;
+            font-size: 0.92rem;
+            color: var(--color-text-light);
+        }
+        .consult-check input { width: auto; margin-top: 4px; }
+        .consult-result {
+            display: none;
+            margin-top: 10px;
+            border: 1px solid #b7d0d6;
+            background: #edf6f8;
+            color: #173f4a;
+            border-radius: 14px;
+            padding: 12px 14px;
+            line-height: 1.5;
+        }
+        .consult-result.show { display: block; }
+        .consult-list { display: grid; gap: 8px; color: var(--color-text-light); font-size: 0.95rem; margin-top: 10px; }
+        .consult-list p { margin: 0; }
+        .consult-history-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .consult-history-card {
+            display: grid;
+            gap: 8px;
+        }
+        .consult-history-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: #6b6058;
+            font-size: 0.92rem;
+        }
+        .consult-history-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #4f4741;
+            line-height: 1.5;
+        }
+        .consult-history-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: #f5efe9;
+            border: 1px solid rgba(216, 205, 196, 0.9);
+            font-size: 0.85rem;
+            color: #4b433c;
+            font-weight: 600;
+        }
+
+        .consult-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(34, 28, 25, 0.35);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            z-index: 9999;
+        }
+        .consult-modal-overlay.open {
+            display: flex;
+        }
+        .consult-modal {
+            width: min(680px, 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #fbf7f1 100%);
+            border-radius: 22px;
+            border: 1px solid rgba(230, 221, 212, 0.9);
+            box-shadow: 0 26px 52px rgba(40, 32, 27, 0.22);
+            padding: 18px 20px 20px;
+            position: relative;
+        }
+        .consult-modal::before {
+            content: "";
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            top: 10px;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(126, 150, 140, 0.6), rgba(216, 190, 168, 0.6));
+        }
+        .consult-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding-top: 8px;
+        }
+        .consult-modal-header h3 {
+            margin: 0;
+            font-size: 1.35rem;
+            color: #2d2825;
+        }
+        .consult-modal-close {
+            border: none;
+            background: #efe7df;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: #4b433c;
+        }
+        .consult-modal-body {
+            color: #5f554d;
+        }
+        .consult-modal-body p {
+            margin: 0 0 10px;
+        }
+        .consult-modal-body strong {
+            color: #2f2a26;
+        }
+        .consult-quick-info {
+            margin-top: 12px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(216, 205, 196, 0.9);
+            background: #fbf7f1;
+        }
+        @media (max-width: 980px) {
+            .consult-hero-grid { grid-template-columns: 1fr; }
+            .consult-history-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 720px) {
+            .consult-form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">LOTUS</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="tests.html" class="nav-link">Тесты</a>
+                <a href="consultations.html" class="nav-link active">Консультации</a>
+                <a href="account.html" class="nav-link"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="nav-link cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main class="consult-page">
+        <div class="container">
+            <section class="consult-hero">
+                <div class="consult-hero-grid">
+                    <div>
+                        <h1>Онлайн-консультация Lotus</h1>
+                        <p class="consult-meta">Персональный разбор ухода, подбор продуктов и план на 4–6 недель. Все онлайн: легко записаться и получить ссылку на Zoom.</p>
+                        <div class="consult-badge-row">
+                            <span class="consult-badge free"><i class="fas fa-gift"></i> 1-я консультация бесплатно</span>
+                            <span class="consult-badge zoom"><i class="fas fa-video"></i> Формат: Zoom</span>
+                        </div>
+                        <div class="consult-hero-actions">
+                            <button class="btn btn-primary" id="openConsultForm" type="button">Записаться онлайн</button>
+                            <button class="btn btn-outline" id="openConsultDetails" type="button">Подробно</button>
+                        </div>
+                    </div>
+                    <div class="consult-hero-media" aria-hidden="true">
+                        <div class="consult-hero-photo">
+                            <img src="images/index/hero-face-closeup.jpg" alt="">
+                        </div>
+                        <div class="consult-hero-photo">
+                            <img src="images/index/lips-main.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <h2 class="consult-section-title">История консультаций</h2>
+            <section class="consult-history-grid">
+                <article class="consult-card consult-history-card">
+                    <div class="consult-history-meta">
+                        <span class="consult-history-tag">27.02.2026</span>
+                        <span class="consult-history-tag">Консультант: Алия</span>
+                    </div>
+                    <p><strong>Тема:</strong> Чувствительная кожа, покраснения</p>
+                    <ul class="consult-history-list">
+                        <li>Мягкое очищение утром и вечером</li>
+                        <li>Сыворотка с ниацинамидом 5%</li>
+                        <li>SPF 30 ежедневно</li>
+                    </ul>
+                </article>
+                <article class="consult-card consult-history-card">
+                    <div class="consult-history-meta">
+                        <span class="consult-history-tag">11.02.2026</span>
+                        <span class="consult-history-tag">Консультант: Диана</span>
+                    </div>
+                    <p><strong>Тема:</strong> Сухость и стянутость</p>
+                    <ul class="consult-history-list">
+                        <li>Крем с керамидами на ночь</li>
+                        <li>Термальная вода после умывания</li>
+                        <li>Маска 2 раза в неделю</li>
+                    </ul>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <div class="consult-modal-overlay" id="consultDetailsModal" role="dialog" aria-modal="true" aria-labelledby="consultDetailsTitle">
+        <div class="consult-modal">
+            <div class="consult-modal-header">
+                <h3 id="consultDetailsTitle">Подробно о консультации</h3>
+                <button class="consult-modal-close" data-close-modal type="button">×</button>
+            </div>
+            <div class="consult-modal-body">
+                <p><strong>Как проходит встреча:</strong> анализ запроса, подбор персонального плана на 4–6 недель, рекомендации по продуктам и чек‑лист после звонка.</p>
+                <p><strong>Длительность:</strong> 25 минут. <strong>Формат:</strong> Zoom. <strong>Ссылка:</strong> приходит на email.</p>
+                <p><strong>Стоимость:</strong> первая консультация бесплатно, повторная — 1990 ₸.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="consult-modal-overlay" id="consultSignupModal" role="dialog" aria-modal="true" aria-labelledby="consultSignupTitle">
+        <div class="consult-modal">
+            <div class="consult-modal-header">
+                <h3 id="consultSignupTitle">Запись на консультацию</h3>
+                <button class="consult-modal-close" data-close-modal type="button">×</button>
+            </div>
+            <div class="consult-modal-body">
+                <form id="consultForm" class="consult-form">
+                    <div class="consult-form-row">
+                        <input type="text" id="consultName" placeholder="Ваше имя" required>
+                        <input type="email" id="consultEmail" placeholder="Email" required>
+                    </div>
+                    <div class="consult-form-row">
+                        <select id="consultType" required>
+                            <option value="free" selected>Первая консультация (0 ₸)</option>
+                            <option value="repeat">Повторная консультация (1990 ₸)</option>
+                        </select>
+                        <select id="consultSlot" required>
+                            <option value="" selected disabled>Выберите дату и время</option>
+                            <option value="06.03.2026 11:00">Пт, 06.03.2026 - 11:00</option>
+                            <option value="06.03.2026 18:00">Пт, 06.03.2026 - 18:00</option>
+                            <option value="07.03.2026 12:30">Сб, 07.03.2026 - 12:30</option>
+                            <option value="07.03.2026 17:30">Сб, 07.03.2026 - 17:30</option>
+                            <option value="08.03.2026 13:00">Вс, 08.03.2026 - 13:00</option>
+                            <option value="08.03.2026 19:00">Вс, 08.03.2026 - 19:00</option>
+                            <option value="09.03.2026 10:00">Пн, 09.03.2026 - 10:00</option>
+                            <option value="09.03.2026 16:30">Пн, 09.03.2026 - 16:30</option>
+                        </select>
+                    </div>
+                    <p class="consult-slot-help">Если нужного слота нет, оставьте заявку — предложим ближайшее окно.</p>
+                    <p class="consult-slot-help" id="consultTypeHint"></p>
+                    <textarea id="consultGoal" placeholder="Коротко о запросе: тип кожи, текущий уход, что хотите улучшить" required></textarea>
+                    <label class="consult-check">
+                        <input type="checkbox" id="consultAgree" required>
+                        <span>Согласен(на) на обработку данных для записи.</span>
+                    </label>
+                    <button type="submit" class="btn btn-primary">Записаться</button>
+                </form>
+
+                <div id="consultResult" class="consult-result" aria-live="polite"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lotus. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="css/js/api.js"></script>
+    <script src="css/js/main.js"></script>
+    <script src="css/js/cart.js"></script>
+    <script>
+        (function () {
+            const form = document.getElementById("consultForm");
+            const result = document.getElementById("consultResult");
+            const typeSelect = document.getElementById("consultType");
+            const emailInput = document.getElementById("consultEmail");
+            const typeHint = document.getElementById("consultTypeHint");
+            if (!form || !result || !typeSelect || !emailInput) return;
+
+            async function setTypeState(emailValue) {
+                let canUseFree = true;
+                const freeOption = typeSelect.querySelector('option[value="free"]');
+
+                try {
+                    const data = await API.request("/api/consultations/eligibility", {
+                        method: "POST",
+                        body: JSON.stringify({ email: String(emailValue || "").trim() })
+                    });
+                    canUseFree = Boolean(data?.canUseFree);
+                } catch (_error) {
+                    canUseFree = true;
+                }
+
+                if (!canUseFree) {
+                    if (freeOption) freeOption.disabled = true;
+                    typeSelect.value = "repeat";
+                    if (typeHint) typeHint.textContent = "Бесплатная консультация уже использована для этого профиля. Доступна повторная: 1990 ₸.";
+                } else {
+                    if (freeOption) freeOption.disabled = false;
+                    if (typeSelect.value !== "repeat") typeSelect.value = "free";
+                    if (typeHint) typeHint.textContent = "Для этого профиля доступна 1 бесплатная консультация в Zoom.";
+                }
+            }
+
+            setTypeState(emailInput.value);
+            emailInput.addEventListener("blur", function () {
+                setTypeState(emailInput.value);
+            });
+
+            form.addEventListener("submit", async function (event) {
+                event.preventDefault();
+                const name = document.getElementById("consultName").value.trim();
+                const email = document.getElementById("consultEmail").value.trim();
+                const type = document.getElementById("consultType").value;
+                const slot = document.getElementById("consultSlot").value;
+                const goal = document.getElementById("consultGoal").value.trim();
+
+                if (goal.length < 20) {
+                    result.textContent = "Опишите запрос подробнее (минимум 20 символов).";
+                    result.classList.add("show");
+                    return;
+                }
+
+                try {
+                    const data = await API.request("/api/consultations/book", {
+                        method: "POST",
+                        body: JSON.stringify({ name, email, type, slot, goal })
+                    });
+                    const booking = data?.booking || {};
+                    const priceText = Number(booking.price) === 0 ? "0 ₸ (первая консультация)" : String(booking.price || 1990) + " ₸";
+
+                    result.innerHTML =
+                        "<strong>Заявка принята.</strong><br>" +
+                        "Имя: " + name + "<br>" +
+                        "Формат: Zoom<br>" +
+                        "Слот: " + String(booking.slot || slot) + "<br>" +
+                        "Стоимость: " + priceText + "<br>" +
+                        "Zoom-ссылка: " + String(booking.zoomLink || "будет отправлена на email") + "<br>" +
+                        "Мы отправим подтверждение на " + email + ".";
+                    result.classList.add("show");
+
+                    form.reset();
+                    emailInput.value = email;
+                    await setTypeState(email);
+                } catch (error) {
+                    result.textContent = error?.message || "Не удалось записаться на консультацию.";
+                    result.classList.add("show");
+                }
+            });
+
+            const detailsModal = document.getElementById("consultDetailsModal");
+            const signupModal = document.getElementById("consultSignupModal");
+            const openFormBtn = document.getElementById("openConsultForm");
+            const openDetailsBtn = document.getElementById("openConsultDetails");
+            const closeButtons = document.querySelectorAll("[data-close-modal]");
+
+            function openModal(modal) {
+                if (!modal) return;
+                modal.classList.add("open");
+            }
+
+            function closeModal(modal) {
+                if (!modal) return;
+                modal.classList.remove("open");
+            }
+
+            openFormBtn?.addEventListener("click", function () {
+                openModal(signupModal);
+            });
+
+            openDetailsBtn?.addEventListener("click", function () {
+                openModal(detailsModal);
+            });
+
+            closeButtons.forEach((btn) => {
+                btn.addEventListener("click", function () {
+                    closeModal(detailsModal);
+                    closeModal(signupModal);
+                });
+            });
+
+            [detailsModal, signupModal].forEach((modal) => {
+                modal?.addEventListener("click", function (event) {
+                    if (event.target === modal) closeModal(modal);
+                });
+            });
+
+            document.addEventListener("keydown", function (event) {
+                if (event.key === "Escape") {
+                    closeModal(detailsModal);
+                    closeModal(signupModal);
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
+

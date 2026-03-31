@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подарочные карты | Lotus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">LOTUS</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="gift-cards.html" class="nav-link active">Подарочные карты</a>
+                <a href="account.html" class="nav-link" aria-label="Личный кабинет">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html" class="nav-link cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="gift-card-page">
+        <section class="gift-card-hero">
+            <div class="container gift-card-hero-inner">
+                <div class="gift-card-hero-copy">
+                    <p class="eyebrow gift-card-eyebrow">Lotus gifting</p>
+                    <h1>Подарочная карта как красивый объект, а не просто код</h1>
+                    <p class="gift-card-lead">
+                        Выберите сумму и подпишите подарок для получателя.
+                        Карта создается сразу после оформления и подходит на весь каталог Lotus.
+                    </p>
+                    <div class="gift-card-hero-tags">
+                        <span>Авторский дизайн Lotus</span>
+                        <span>Мгновенный код после оплаты</span>
+                        <span>Подходит на весь каталог Lotus</span>
+                    </div>
+                </div>
+
+                <div class="gift-card-hero-aside">
+                    <div class="gift-card-mini-note">
+                        <strong>Настроение</strong>
+                        <span>Вдохновлено восточной графикой и спокойным образом цветущего лотоса.</span>
+                    </div>
+                    <div class="gift-card-mini-stats">
+                        <div>
+                            <span class="gift-card-mini-value">1</span>
+                            <span class="gift-card-mini-label">оформление карты</span>
+                        </div>
+                        <div>
+                            <span class="gift-card-mini-value">1</span>
+                            <span class="gift-card-mini-label">код сразу после создания</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gift-card-showcase container">
+            <div class="gift-card-designer">
+                <div class="gift-card-stage">
+                    <article class="gift-card-physical theme-lotus" id="giftCardPhysical">
+                        <div class="gift-card-physical-top">
+                            <span class="gift-card-physical-brand">LOTUS gift card</span>
+                            <span class="gift-card-physical-amount" id="giftCardPreviewAmount">20 000 ₸</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <aside class="gift-card-panel">
+                <form id="giftCardForm" class="gift-card-form">
+                    <div class="gift-card-form-head">
+                        <p class="gift-card-form-kicker">Оформление</p>
+                        <h3>Создать карту</h3>
+                        <p>Выберите номинал и подпишите подарок. Код появится сразу после оформления.</p>
+                    </div>
+
+                    <div class="gift-card-form-grid">
+                        <div class="gift-card-field">
+                            <label for="giftCardAmount">Номинал</label>
+                            <select id="giftCardAmount" name="amount">
+                                <option value="5000">5 000 ₸</option>
+                                <option value="10000">10 000 ₸</option>
+                                <option value="20000" selected>20 000 ₸</option>
+                                <option value="50000">50 000 ₸</option>
+                                <option value="100000">100 000 ₸</option>
+                                <option value="150000">150 000 ₸</option>
+                                <option value="200000">200 000 ₸</option>
+                            </select>
+                        </div>
+
+                        <div class="gift-card-field">
+                            <label for="recipientName">Имя получателя</label>
+                            <input type="text" id="recipientName" name="recipientName" placeholder="Например, Алина">
+                        </div>
+                    </div>
+
+                    <div class="gift-card-field">
+                        <label for="recipientEmail">Email получателя</label>
+                        <input type="email" id="recipientEmail" name="recipientEmail" placeholder="name@email.com" required>
+                    </div>
+
+                    <div class="gift-card-field">
+                        <label for="giftMessage">Сообщение</label>
+                        <textarea id="giftMessage" name="message" rows="4" placeholder="Пусть этот подарок будет красивым знаком внимания."></textarea>
+                    </div>
+
+                    <div class="gift-card-form-actions">
+                        <button type="submit" class="btn btn-primary btn-block">Создать карту</button>
+                        <p class="gift-card-note" id="giftCardLoginNotice"></p>
+                    </div>
+                </form>
+
+                <div class="gift-card-result" id="giftCardResult" hidden>
+                    <div class="gift-card-result-head">
+                        <p class="gift-card-form-kicker">Готово</p>
+                        <h4>Карта создана</h4>
+                    </div>
+                    <p>Скопируйте код и отправьте его получателю. Он сможет использовать карту при оформлении заказа.</p>
+                    <div class="gift-card-result-code" id="giftCardResultCode"></div>
+                    <button type="button" class="btn btn-outline" id="copyGiftCardCode">Скопировать код</button>
+                </div>
+            </aside>
+        </section>
+
+        <section class="gift-card-benefits container">
+            <article class="gift-card-benefit">
+                <span class="gift-card-benefit-icon"><i class="fas fa-image"></i></span>
+                <h4>Один цельный дизайн</h4>
+                <p>На странице осталось одно оформление карты, чтобы подача выглядела чище и собраннее.</p>
+            </article>
+            <article class="gift-card-benefit">
+                <span class="gift-card-benefit-icon"><i class="fas fa-feather"></i></span>
+                <h4>Больше внимания к самой карте</h4>
+                <p>Акцент смещен на большое превью карты и аккуратную панель оформления, без лишних переключателей.</p>
+            </article>
+            <article class="gift-card-benefit">
+                <span class="gift-card-benefit-icon"><i class="fas fa-gift"></i></span>
+                <h4>Личное оформление</h4>
+                <p>Сумма сразу видна на карте, а имя и сообщение остаются в оформлении подарка справа.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2026 Lotus. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="css/js/api.js"></script>
+    <script src="css/js/main.js"></script>
+    <script src="css/js/cart.js"></script>
+    <script src="css/js/gift-cards.js"></script>
+</body>
+</html>

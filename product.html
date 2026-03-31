@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товар - Lotus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">LOTUS</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="gift-cards.html" class="nav-link">Подарочные карты</a>
+                <a href="account.html" class="nav-link" aria-label="Личный кабинет">
+                    <i class="fas fa-user"></i>
+                </a>
+                <a href="cart.html" class="nav-link cart-icon" aria-label="Корзина">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="product-page product-page-refined">
+        <section class="product-announce">
+            <div class="container">
+                <p>Скидка до -20% на первый заказ по промокоду</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <a href="catalog.html" class="product-back-link">
+                <i class="fas fa-arrow-left"></i>
+                Вернуться в каталог
+            </a>
+
+            <section class="product-layout" id="productLayout">
+                <div class="product-detail-media" id="productMedia" aria-live="polite">
+                    <i class="fas fa-jar"></i>
+                </div>
+
+                <div class="product-detail-info">
+                    <div class="product-meta-line">
+                        <span id="productCategory">Уход</span>
+                        <span class="product-meta-divider" aria-hidden="true"></span>
+                        <span id="productBrand">Lotus</span>
+                    </div>
+
+                    <h1 id="productName">Загрузка товара...</h1>
+
+                    <div class="product-article-line">
+                        артикул:
+                        <span id="productArticle">000000000</span>
+                    </div>
+
+                    <p class="product-detail-desc" id="productDescription"></p>
+
+                    <div class="product-purchase-card">
+                        <div class="product-price-row">
+                            <div class="product-detail-price" id="productPrice">0 ₸</div>
+                            <a class="product-bonus-link" id="productBonusLink" href="login.html">Авторизуйтесь и получайте бонусы</a>
+                        </div>
+
+                        <div class="product-stock" id="productStock"></div>
+
+                        <div class="product-quantity-wrap">
+                            <span class="product-quantity-label">Количество / шт</span>
+                            <div class="product-quantity-control" aria-label="Количество товара">
+                                <button type="button" class="product-qty-btn" id="quantityDecrease" aria-label="Уменьшить количество">−</button>
+                                <span class="product-qty-value" id="quantityValue">1</span>
+                                <button type="button" class="product-qty-btn" id="quantityIncrease" aria-label="Увеличить количество">+</button>
+                            </div>
+                        </div>
+
+                        <div class="product-actions">
+                            <button class="btn btn-primary product-main-cta" id="addToCartBtn">Добавить в корзину</button>
+                            <button class="btn btn-outline product-secondary-cta" id="buyNowBtn">Купить сейчас</button>
+                        </div>
+
+                        <a href="#productDelivery" class="product-availability-link">Доставка и самовывоз</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="product-highlight-row" aria-label="Преимущества товара">
+                <article class="product-highlight-card">
+                    <span class="product-highlight-icon"><i class="fas fa-truck"></i></span>
+                    <div>
+                        <h3>Бесплатная доставка</h3>
+                        <p>При заказе от 10 000 ₸ по Казахстану.</p>
+                    </div>
+                </article>
+                <article class="product-highlight-card">
+                    <span class="product-highlight-icon"><i class="fas fa-store"></i></span>
+                    <div>
+                        <h3>Онлайн и офлайн</h3>
+                        <p>Товар доступен для заказа и самовывоза.</p>
+                    </div>
+                </article>
+                <article class="product-highlight-card">
+                    <span class="product-highlight-icon"><i class="fas fa-shield-heart"></i></span>
+                    <div>
+                        <h3>Оригинальная продукция</h3>
+                        <p>Поставки от брендов и проверенных дистрибьюторов.</p>
+                    </div>
+                </article>
+            </section>
+
+            <section class="product-delivery-section" id="productDelivery">
+                <div class="product-delivery-shell">
+                    <div class="product-delivery-header">
+                        <div class="product-delivery-copy">
+                            <p class="product-delivery-kicker">Доставка</p>
+                            <h2>Спокойно и без лишних шагов</h2>
+                            <p class="product-delivery-intro">
+                                Выберите удобный способ получения: курьером или самовывозом. Всё коротко,
+                                понятно и без перегруженных деталей.
+                            </p>
+                        </div>
+                        <div class="product-delivery-badge">
+                            <span class="product-delivery-badge-label">Город</span>
+                            <strong>Алматы</strong>
+                        </div>
+                    </div>
+
+                    <div class="product-delivery-grid">
+                        <article class="product-delivery-option product-delivery-option-featured">
+                            <div class="product-delivery-option-head">
+                                <span class="product-delivery-option-icon"><i class="fas fa-truck-fast"></i></span>
+                                <div class="product-delivery-option-copy">
+                                    <h3>Курьер</h3>
+                                    <p>Доставка по адресу в удобный временной слот.</p>
+                                </div>
+                            </div>
+                            <div class="product-delivery-line">
+                                <span>Ближайшее окно</span>
+                                <strong id="deliveryCourierText">Завтра</strong>
+                            </div>
+                            <div class="product-delivery-pills">
+                                <span class="product-delivery-pill">Окно 2-4 часа</span>
+                                <span class="product-delivery-pill">Подтверждение после заказа</span>
+                            </div>
+                        </article>
+
+                        <article class="product-delivery-option">
+                            <div class="product-delivery-option-head">
+                                <span class="product-delivery-option-icon"><i class="fas fa-store"></i></span>
+                                <div class="product-delivery-option-copy">
+                                    <h3>Самовывоз</h3>
+                                    <p>Заберите заказ сами, когда будет удобно заехать.</p>
+                                </div>
+                            </div>
+                            <div class="product-delivery-line">
+                                <span>Готов к выдаче</span>
+                                <strong id="deliveryPickupText">Завтра</strong>
+                            </div>
+                            <div class="product-delivery-pills">
+                                <span class="product-delivery-pill">Резерв до 48 часов</span>
+                                <span class="product-delivery-pill">Оплата онлайн или при получении</span>
+                            </div>
+                        </article>
+
+                        <aside class="product-delivery-note">
+                            <span class="product-delivery-note-label">Ближайшая дата</span>
+                            <h3 id="deliveryDateLabel">Завтра, когда удобно</h3>
+                            <p>
+                                После оформления мы подтвердим детали и подготовим заказ к выдаче или отправке.
+                            </p>
+                            <a href="delivery-info.html" class="product-delivery-more">Открыть все условия доставки</a>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <section class="product-tabs-shell">
+                <div class="product-tabs" role="tablist" aria-label="Информация о товаре">
+                    <button class="tab-btn active" type="button" data-tab="tabDescription">Описание</button>
+                    <button class="tab-btn" type="button" data-tab="tabUsage">Применение</button>
+                    <button class="tab-btn" type="button" data-tab="tabBrand">Бренд</button>
+                    <button class="tab-btn" type="button" data-tab="tabExtra">Дополнительная информация</button>
+                </div>
+
+                <div class="product-tab-panels">
+                    <section class="product-tab-panel tab-content active" id="tabDescription">
+                        <h3 id="tabDescriptionTitle">О товаре</h3>
+                        <p id="tabDescriptionText">Описание скоро появится.</p>
+                    </section>
+
+                    <section class="product-tab-panel tab-content" id="tabUsage">
+                        <h3>Как использовать</h3>
+                        <p id="tabUsageText"></p>
+                    </section>
+
+                    <section class="product-tab-panel tab-content" id="tabBrand">
+                        <h3 id="tabBrandTitle">Бренд</h3>
+                        <p id="tabBrandText"></p>
+                    </section>
+
+                    <section class="product-tab-panel tab-content" id="tabExtra">
+                        <h3>Дополнительная информация</h3>
+                        <div class="product-extra-grid">
+                            <article class="product-extra-card">
+                                <span class="product-extra-label">Состав</span>
+                                <p id="productIngredients">—</p>
+                            </article>
+                            <article class="product-extra-card">
+                                <span class="product-extra-label">Формат</span>
+                                <p id="productFormatText">—</p>
+                            </article>
+                            <article class="product-extra-card">
+                                <span class="product-extra-label">Наличие</span>
+                                <p id="productExtraStock">—</p>
+                            </article>
+                            <article class="product-extra-card">
+                                <span class="product-extra-label">Доставка</span>
+                                <p id="productExtraDelivery">—</p>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <section class="product-reviews-section" id="reviews">
+                <div class="product-reviews-header">
+                    <div>
+                        <h2>Рейтинг и отзывы</h2>
+                        <p class="product-reviews-subtitle" id="reviewStats">Пока нет оценок</p>
+                    </div>
+                    <a href="#reviewsList" class="product-reviews-link">Смотреть все</a>
+                </div>
+
+                <div class="product-reviews-top">
+                    <article class="review-summary-card" id="reviewSummaryCard">
+                        <div class="review-score-grid">
+                            <div class="review-score-main">
+                                <div class="review-score-value" id="reviewAverage">0.0</div>
+                                <div class="review-stars review-stars-large" id="reviewStarsLarge">☆☆☆☆☆</div>
+                                <div class="review-score-caption">оценка товара</div>
+                            </div>
+                            <div class="review-score-side">
+                                <div class="review-score-side-item">
+                                    <strong id="reviewRecommendPercent">0%</strong>
+                                    <span>покупателей рекомендуют</span>
+                                </div>
+                                <div class="review-score-side-item">
+                                    <strong id="reviewTotalCount">0</strong>
+                                    <span>отзывов</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-distribution" id="reviewDistribution"></div>
+                    </article>
+                </div>
+
+                <div class="product-reviews-list" id="reviewsList">
+                    <p class="muted">Загрузка отзывов...</p>
+                </div>
+
+                <div class="review-form-shell">
+                    <div class="review-gate-message" id="reviewGateMessage"></div>
+
+                    <form class="review-form review-form-card" id="reviewForm">
+                        <div class="review-form-head">
+                            <p class="review-form-kicker">Поделитесь впечатлением</p>
+                            <h3>Оставить отзыв</h3>
+                            <p>Отзывы помогают другим покупателям быстрее понять, подойдёт ли им этот продукт.</p>
+                        </div>
+
+                        <div class="review-form-grid" id="guestFields">
+                            <input type="text" id="reviewAuthorName" placeholder="Ваше имя">
+                            <input type="email" id="reviewAuthorEmail" placeholder="Ваш email">
+                        </div>
+
+                        <div class="review-form-grid review-form-grid-single">
+                            <select id="reviewRating" required>
+                                <option value="">Оценка</option>
+                                <option value="5">5 - Отлично</option>
+                                <option value="4">4 - Хорошо</option>
+                                <option value="3">3 - Нормально</option>
+                                <option value="2">2 - Слабо</option>
+                                <option value="1">1 - Плохо</option>
+                            </select>
+                        </div>
+
+                        <textarea id="reviewText" rows="4" placeholder="Напишите, что вам особенно понравилось в товаре" required></textarea>
+                        <button type="submit" class="btn btn-primary">Оставить отзыв</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2026 Lotus. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="css/js/api.js"></script>
+    <script src="css/js/main.js"></script>
+    <script src="css/js/cart.js"></script>
+    <script src="css/js/product.js"></script>
+</body>
+</html>

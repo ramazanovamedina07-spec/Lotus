@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Возврат - Lotus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">LOTUS</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="tests.html" class="nav-link">Тесты</a>
+                <a href="account.html" class="nav-link"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="nav-link cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main class="catalog-page">
+        <div class="container">
+            <h1 class="page-title">Возврат</h1>
+
+            <section class="return-shell">
+                <h2>Оформить возврат</h2>
+                <p class="return-sub">Заполните форму, и мы зарегистрируем заявку на возврат.</p>
+
+                <form id="returnForm" class="return-form">
+                    <input id="returnOrderId" type="number" min="1" placeholder="Номер заказа" required>
+                    <input id="returnEmail" type="email" placeholder="Email из заказа" required>
+                    <select id="returnReason" required>
+                        <option value="">Причина возврата</option>
+                        <option value="Товар не подошел">Товар не подошел</option>
+                        <option value="Повреждение при доставке">Повреждение при доставке</option>
+                        <option value="Не тот товар">Не тот товар</option>
+                        <option value="Аллергическая реакция/непереносимость">Аллергическая реакция/непереносимость</option>
+                        <option value="Другая причина">Другая причина</option>
+                    </select>
+                    <textarea id="returnDetails" rows="4" placeholder="Комментарий (необязательно)"></textarea>
+                    <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                </form>
+
+                <div id="returnResult" class="return-result" aria-live="polite"></div>
+            </section>
+
+            <section class="return-shell mt-20">
+                <h2>Условия возврата</h2>
+                <ul class="return-rules">
+                    <li>Возврат можно оформить в течение 14 дней с момента заказа.</li>
+                    <li>Товар должен быть без следов использования и в оригинальной упаковке.</li>
+                    <li>После подтверждения возврата деньги обычно поступают за 3-10 рабочих дней.</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lotus. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="css/js/api.js"></script>
+    <script src="css/js/main.js"></script>
+    <script src="css/js/cart.js"></script>
+    <script src="css/js/returns.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа - Lotus</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="checkout-page">
+        <div class="container">
+            <h1>Оформление заказа</h1>
+
+            <form id="checkoutForm">
+                <div class="checkout-grid">
+                    <div class="checkout-fields">
+                        <h3>Контактные данные</h3>
+                        <input type="text" name="name" placeholder="Имя" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="tel" name="phone" placeholder="Телефон" required>
+
+                        <h3>Адрес доставки</h3>
+                        <input type="text" name="city" placeholder="Город" required>
+                        <input type="text" name="street" placeholder="Улица, дом" required>
+                        <input type="text" name="apartment" placeholder="Квартира">
+                    </div>
+
+                    <div class="checkout-summary">
+                        <h3>Ваш заказ</h3>
+                        <div id="checkoutItems"></div>
+                        <div class="checkout-gift-card">
+                            <label for="giftCardCode">Подарочная карта</label>
+                            <div class="checkout-gift-card-row">
+                                <input
+                                    type="text"
+                                    id="giftCardCode"
+                                    name="giftCardCode"
+                                    placeholder="LOTUS-XXXX-XXXX-XXXX"
+                                    autocomplete="off"
+                                >
+                                <button type="button" id="applyGiftCardBtn">Применить</button>
+                            </div>
+                            <p class="checkout-gift-card-status" id="giftCardStatus"></p>
+                        </div>
+                        <div class="summary-row checkout-gift-card-discount" id="giftCardDiscountRow" hidden>
+                            <span>Подарочная карта</span>
+                            <span id="giftCardDiscount">-0 ₸</span>
+                        </div>
+                        <div class="checkout-total">
+                            <strong>Итого:</strong> <span id="checkoutTotal">0 ₸</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Подтвердить заказ
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="css/js/api.js"></script>
+    <script src="css/js/cart.js"></script>
+</body>
+</html>
+
+

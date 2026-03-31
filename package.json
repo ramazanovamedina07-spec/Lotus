@@ -1,0 +1,25 @@
+{
+  "name": "lotus-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lotus shop with SQLite auth, cart, and account",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "reset-password": "node scripts/reset-password.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^4.22.1",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.14",
+    "pg": "^8.18.0",
+    "sqlite3": "^5.1.7"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

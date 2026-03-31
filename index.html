@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotus - уходовая косметика</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">LOTUS</a>
+            
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="mag.html" class="nav-link">Журнал</a>
+                <a href="tests.html" class="nav-link">Тесты</a>
+                <a href="consultations.html" class="nav-link">Консультации</a>
+                <a href="account.html" class="nav-link">
+                    <i class="fas fa-user"></i>
+                </a>
+                <!-- <a href="cart.html" class="nav-link cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a> -->
+                <a href="cart.html" class="nav-link cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </nav>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero-shell">
+        <div class="container hero-shell-grid">
+            <div class="hero-copy">
+                <p class="eyebrow">Lotus skincare aesthetic</p>
+                <h1 class="hero-display">LOTUS</h1>
+                <p class="hero-lead">
+                    Лотос растет в мутной воде, но остается безупречно чистым. Так и твоя кожа может сиять,
+                    несмотря на стресс, усталость и ритм повседневной жизни. Lotus - это не просто косметика,
+                    а напоминание о том, что красота рождается из заботы, баланса и тихой уверенности. Ты и есть этот цветок.
+                </p>
+                <div class="hero-actions">
+                    <a href="catalog.html?category=face" class="btn btn-primary">Смотреть уход</a>
+                    <a href="#editorial" class="btn btn-outline">Открыть подборку</a>
+                </div>
+                <div class="hero-tags">
+                    <span>glass skin</span>
+                    <span>soft editorial</span>
+                    <span>luxury skincare</span>
+                    <span>AI campaign ready</span>
+                </div>
+            </div>
+
+            <div class="hero-stage">
+                <article class="hero-frame hero-frame-main">
+                </article>
+
+                <article class="hero-frame hero-frame-product">
+                    <img src="images/index/product-powder.jpg" alt="Beauty editorial Lotus">
+                </article>
+
+                <article class="hero-frame hero-frame-accent">
+                    <img src="images/index/lips-hero.jpg" alt="Lotus accent editorial">
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="beauty-capsules">
+        <div class="container">
+            <div class="capsule-row">
+                <a href="catalog.html?category=face" class="capsule-pill">
+                    <span class="capsule-icon"><img src="images/index/face-clean-main.jpg" alt=""></span>
+                    <span>уход для лица</span>
+                </a>
+                <a href="catalog.html?category=body" class="capsule-pill">
+                    <span class="capsule-icon"><img src="images/index/hero-lotus.jpg" alt=""></span>
+                    <span>уход для тела</span>
+                </a>
+                <a href="catalog.html?category=perfume" class="capsule-pill">
+                    <span class="capsule-icon"><img src="images/index/category-perfume-women.jpg" alt=""></span>
+                    <span>парфюмерия</span>
+                </a>
+                <a href="catalog.html?category=men" class="capsule-pill">
+                    <span class="capsule-icon"><img src="images/index/category-men.jpg" alt=""></span>
+                    <span>для мужчин</span>
+                </a>
+                <a href="tests.html?test=skin" class="capsule-pill">
+                    <span class="capsule-icon capsule-icon-text">AI</span>
+                    <span>подбор ухода</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="editorial-section" id="editorial">
+        <div class="container">
+            <div class="editorial-heading">
+                <p class="eyebrow">Lotus beauty story</p>
+                <h2 class="section-title editorial-title">Подборки, вдохновленные эстетикой Lotus</h2>
+                <p class="section-subtitle">
+                    Здесь собраны визуальные истории, чистые акценты и уходовые подборки, в которых красота ощущается
+                    как настроение, стиль и личный ритуал.
+                </p>
+            </div>
+
+            <div class="editorial-grid">
+                <article class="editorial-card editorial-card-feature">
+                    <div class="editorial-media editorial-media-soft">
+                        <div class="editorial-badge">skincare</div>
+                        <div class="editorial-overlay">
+                            <h3>Утренний уход с эффектом fresh skin</h3>
+                            <p>Легкие текстуры, сияние, SPF и ощущение чистоты без перегруза.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="editorial-card editorial-card-product">
+                    <div class="editorial-media editorial-media-product">
+                        <img src="images/index/hero-beauty-1.jpg" alt="Beauty campaign image">
+                    </div>
+                    <div class="editorial-copy">
+                        <span class="editorial-kicker">lotus selection</span>
+                        <h3>Уход начинается с нежности к себе</h3>
+                        <p>Красота раскрывается там, где есть забота, внимание к деталям и тихое уважение к себе.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI помощник -->
+    <section class="ai-section" id="ai">
+        <div class="container">
+            <h2 class="section-title">Lotus AI-консультант</h2>
+            <p class="section-subtitle">
+                Опишите тип кожи, что вас беспокоит и какого результата хотите. Lotus AI даст практичный план и сразу покажет подходящие продукты из каталога.
+            </p>
+            
+            <div class="ai-container">
+                <div class="ai-chat" id="aiChat">
+                    <!-- Запросы и ответы -->
+                </div>
+                
+                <div class="ai-input-area">
+                    <textarea id="aiInput" rows="3" placeholder="Например: у меня комбинированная чувствительная кожа и жирный блеск в Т-зоне, подбери уход и крем из каталога"></textarea>
+                    <button id="aiSendBtn" class="btn btn-primary">
+                        Спросить AI
+                    </button>
+                </div>
+                
+                <div class="ai-suggestions">
+                    <button class="suggestion">У меня сухая чувствительная кожа, подбери уход и крем из каталога</button>
+                    <button class="suggestion">Есть жирный блеск и поры, что лучше взять из Lotus?</button>
+                    <button class="suggestion">Подбери шампунь и уход для тонких волос</button>
+                    <button class="suggestion">Объясни, как вводить ретинол без раздражения</button>
+                    <button class="suggestion">Собери утреннюю рутину с витамином C и SPF</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Хаб тестов -->
+    <section class="tests-hub-section" id="testsHub">
+        <div class="container">
+            <h2 class="section-title">Мини-тесты по подбору</h2>
+            <p class="section-subtitle">
+                Выберите вид теста и перейдите к быстрому персональному подбору.
+            </p>
+
+            <div class="tests-hub-card">
+                <div class="tests-hub-grid">
+                    <a class="tests-hub-item" href="tests.html?test=color">
+                        <h3>Тест на цветотип</h3>
+                        <p>Подбор подходящей палитры оттенков.</p>
+                    </a>
+                    <a class="tests-hub-item" href="tests.html?test=skin">
+                        <h3>Тест на тип кожи</h3>
+                        <p>Определение базового ухода и активов.</p>
+                    </a>
+                    <a class="tests-hub-item" href="tests.html?test=hair">
+                        <h3>Тест на структуру волос</h3>
+                        <p>Подбор средств по типу и плотности волос.</p>
+                    </a>
+                    <a class="tests-hub-item" href="tests.html?test=aroma">
+                        <h3>Твой идеальный аромат</h3>
+                        <p>Подбор ароматического профиля для духов и ухода.</p>
+                    </a>
+                    <a class="tests-hub-item" href="tests.html?test=stress">
+                        <h3>Стресс и кожа</h3>
+                        <p>Оценка влияния стресса на состояние кожи и базовые шаги коррекции.</p>
+                    </a>
+                    <a class="tests-hub-item" href="tests.html?test=gift">
+                        <h3>Идеальный подарок</h3>
+                        <p>Подбор подарка для подруги, мамы или себя.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>LOTUS</h3>
+                    <p>Косметика с философией чистоты. Для всех, кто выбирает качество.</p>
+                    <div class="payment-methods">
+                        <h4>Принимаем к оплате</h4>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-mir"></i>
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Каталог</h4>
+                    <a href="catalog.html?category=face">Уход за лицом</a>
+                    <a href="catalog.html?category=hair">Уход за волосами</a>
+                    <a href="catalog.html?category=body">Уход за телом</a>
+                    <a href="catalog.html?category=perfume">Духи</a>
+                    <a href="catalog.html?category=men">Для мужчин</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Помощь</h4>
+                    <a href="mag.html">Журнал</a>
+                    <a href="consultations.html">Консультации</a>
+                    <a href="delivery-info.html">Доставка</a>
+                    <a href="payment.html">Оплата</a>
+                    <a href="returns.html">Возврат</a>
+                    <a href="account.html#orders">Мои покупки</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> info@lotus.ru</p>
+                    <p><i class="fas fa-clock"></i> Ежедневно 9:00-21:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lotus. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Подключаем скрипты -->
+    <script src="css/js/api.js"></script>
+    <script src="css/js/main.js"></script>
+    <script src="css/js/auth.js"></script>
+    <script src="css/js/catalog.js"></script>
+    <script src="css/js/cart.js"></script>
+    <script src="css/js/ai.js"></script>
+
+</body>
+</html>
+
+
+

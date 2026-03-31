@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина | Lotus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="lotus-app-page lotus-scene-cart">
+    <div class="lotus-app-scene">
+        <div class="lotus-window-shell">
+            <header class="header">
+                <div class="container header-container">
+                    <a href="index.html" class="logo">LOTUS</a>
+
+                    <nav class="nav">
+                        <a href="index.html" class="nav-link">Главная</a>
+                        <a href="catalog.html" class="nav-link">Каталог</a>
+                        <a href="mag.html" class="nav-link">Журнал</a>
+                        <a href="tests.html" class="nav-link">Тесты</a>
+                        <a href="consultations.html" class="nav-link">Консультации</a>
+                        <a href="gift-cards.html" class="nav-link">Подарочные карты</a>
+                        <a href="account.html" class="nav-link" aria-label="Личный кабинет">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <a href="cart.html" class="nav-link cart-icon active" aria-label="Корзина">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </a>
+                    </nav>
+
+                    <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </header>
+
+            <main class="lotus-app-main cart-desktop-page">
+                <div class="lotus-screen-shell">
+                    <h1 class="lotus-screen-title">Корзина</h1>
+
+                    <section class="cart-desktop-stack">
+                        <div class="cart-items cart-desktop-items" id="cartItems">
+                            <p class="cart-empty">Корзина пуста</p>
+                        </div>
+
+                        <aside class="cart-summary cart-desktop-summary">
+                            <div class="cart-desktop-summary-row">
+                                <span>Итого</span>
+                                <strong id="cartTotalPrice">0 ₸</strong>
+                            </div>
+                            <div class="cart-desktop-summary-meta">
+                                <span>Товаров в корзине</span>
+                                <span id="cartTotalItems">0</span>
+                            </div>
+                            <a href="checkout.html" class="btn btn-primary btn-block cart-desktop-checkout">Оформить заказ</a>
+                        </aside>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="css/js/api.js" defer></script>
+    <script src="css/js/main.js" defer></script>
+    <script src="css/js/cart.js" defer></script>
+</body>
+</html>

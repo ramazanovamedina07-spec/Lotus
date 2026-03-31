@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - Lotus</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo">LOTUS</div>
+                <p class="auth-subtitle">Создайте аккаунт</p>
+            </div>
+            
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" placeholder="Иван Иванов" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="ivan@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" placeholder="Минимум 6 символов" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Подтверждение пароля</label>
+                    <input type="password" id="confirmPassword" placeholder="Повторите пароль" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Пол</label>
+                    <div class="radio-group">
+                        <label class="radio">
+                            <input type="radio" name="gender" value="female"> Женский
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="gender" value="male"> Мужской
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="gender" value="other"> Другой
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="agree" required>
+                    <label for="agree">Я согласен с условиями использования</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+            </div>
+        </div>
+        
+        <div class="auth-philosophy">
+            <div class="philosophy-content">
+                <h2>Почему Lotus?</h2>
+                <div class="lotus-quote">
+                    <i class="fas fa-spa"></i>
+                    <blockquote>
+                        "Лотос растет в мутной воде, но остается чистым и прекрасным. 
+                        Так и ваша кожа может сиять, несмотря на стресс, экологию и другие факторы."
+                    </blockquote>
+                </div>
+                <div class="philosophy-features">
+                    <div class="feature">
+                        <i class="fas fa-leaf"></i>
+                        <span>100% натурально</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-heart"></i>
+                        <span>Для всех полов</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-flask"></i>
+                        <span>Научный подход</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="css/js/api.js"></script>
+    <script src="css/js/auth.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lotus Admin</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+      .admin-page {
+        background: #f6f4f0;
+        color: #1f1b16;
+      }
+      .admin-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 28px;
+        background: #11100f;
+        color: #f5efe7;
+      }
+      .admin-header a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .admin-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .admin-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px;
+      }
+      .admin-guard {
+        background: #fff6f1;
+        border: 1px solid #f1d3c3;
+        padding: 16px;
+        border-radius: 10px;
+      }
+      .admin-panel[hidden] {
+        display: none;
+      }
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .tab-btn {
+        border: 1px solid #11100f;
+        background: transparent;
+        padding: 10px 16px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .tab-btn.active {
+        background: #11100f;
+        color: #f5efe7;
+      }
+      .tab-content {
+        display: none;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      .admin-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        margin-bottom: 18px;
+      }
+      .admin-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      .admin-table th,
+      .admin-table td {
+        padding: 10px 8px;
+        border-bottom: 1px solid #eee3d8;
+        text-align: left;
+        vertical-align: top;
+      }
+      .admin-table th {
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: #5a4f45;
+      }
+      .admin-form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+      }
+      .admin-form label {
+        display: block;
+        font-size: 12px;
+        color: #5a4f45;
+        margin-bottom: 6px;
+      }
+      .admin-form input,
+      .admin-form select,
+      .admin-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #d9c6b8;
+        border-radius: 10px;
+        background: #fffaf6;
+        font-size: 14px;
+      }
+      .admin-form textarea {
+        min-height: 90px;
+        resize: vertical;
+      }
+      .admin-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .btn {
+        border: none;
+        background: #11100f;
+        color: #f5efe7;
+        padding: 10px 16px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .btn.secondary {
+        background: #e6d6c9;
+        color: #2c241d;
+      }
+      .btn.danger {
+        background: #b73d3d;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        background: #f2e3d5;
+      }
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+      }
+      .kpi {
+        background: #fef8f2;
+        border: 1px solid #f1d8c7;
+        border-radius: 12px;
+        padding: 12px;
+      }
+      .kpi strong {
+        display: block;
+        font-size: 18px;
+      }
+      .muted {
+        color: #6b5f54;
+        font-size: 13px;
+      }
+      .inline-actions {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .admin-footer {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #6b5f54;
+      }
+    </style>
+  </head>
+  <body class="admin-page">
+    <header class="admin-header">
+      <a class="admin-brand" href="index.html">
+        <i class="fa-solid fa-spa"></i>
+        LOTUS ADMIN
+      </a>
+      <div class="inline-actions">
+        <button class="btn secondary" id="adminLogout">Выйти</button>
+      </div>
+    </header>
+
+    <main class="admin-container">
+      <div id="adminGuard" class="admin-guard">Проверяем доступ...</div>
+
+      <section id="adminPanel" class="admin-panel" hidden>
+        <div class="admin-card">
+          <div class="muted">Администратор: <span id="adminName">—</span></div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="admin-products">Товары</button>
+          <button class="tab-btn" data-tab="admin-orders">Заказы</button>
+          <button class="tab-btn" data-tab="admin-users">Пользователи</button>
+          <button class="tab-btn" data-tab="admin-tests">Тесты</button>
+          <button class="tab-btn" data-tab="admin-analytics">Аналитика</button>
+        </div>
+
+        <section id="admin-products" class="tab-content active">
+          <div class="admin-card">
+            <h3>Карточка товара</h3>
+            <form id="productForm" class="admin-form">
+              <input type="hidden" id="productId" />
+              <div>
+                <label for="productName">Название</label>
+                <input id="productName" required />
+              </div>
+              <div>
+                <label for="productCategory">Категория</label>
+                <select id="productCategory">
+                  <option value="face">Лицо</option>
+                  <option value="hair">Волосы</option>
+                  <option value="body">Тело</option>
+                  <option value="perfume">Парфюм</option>
+                  <option value="men">Мужское</option>
+                </select>
+              </div>
+              <div>
+                <label for="productPrice">Цена</label>
+                <input id="productPrice" type="number" min="0" step="1" />
+              </div>
+              <div>
+                <label for="productStock">Остаток</label>
+                <input id="productStock" type="number" min="0" step="1" />
+              </div>
+              <div>
+                <label for="productTags">Теги (через запятую)</label>
+                <input id="productTags" />
+              </div>
+              <div>
+                <label for="productImage">Ссылка на изображение</label>
+                <input id="productImage" />
+              </div>
+              <div>
+                <label for="productIngredients">Ингредиенты</label>
+                <textarea id="productIngredients"></textarea>
+              </div>
+              <div>
+                <label for="productDescription">Описание</label>
+                <textarea id="productDescription"></textarea>
+              </div>
+              <div>
+                <label for="productComposition">INCI/Состав</label>
+                <textarea id="productComposition"></textarea>
+              </div>
+              <div>
+                <label for="productActive">Активен</label>
+                <select id="productActive">
+                  <option value="1">Да</option>
+                  <option value="0">Нет</option>
+                </select>
+              </div>
+            </form>
+            <div class="admin-actions">
+              <button class="btn" id="productSave">Сохранить</button>
+              <button class="btn secondary" id="productReset">Очистить</button>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <h3>Список товаров</h3>
+            <div id="productsMeta" class="muted"></div>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Название</th>
+                  <th>Категория</th>
+                  <th>Цена</th>
+                  <th>Остаток</th>
+                  <th>Статус</th>
+                  <th>Действия</th>
+                </tr>
+              </thead>
+              <tbody id="productsTable"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="admin-orders" class="tab-content">
+          <div class="admin-card">
+            <h3>Заказы</h3>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Покупатель</th>
+                  <th>Контакты</th>
+                  <th>Сумма</th>
+                  <th>Статус</th>
+                  <th>Дата</th>
+                  <th>Действия</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTable"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="admin-users" class="tab-content">
+          <div class="admin-card">
+            <h3>Пользователи</h3>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Имя</th>
+                  <th>Email</th>
+                  <th>Телефон</th>
+                  <th>Роль</th>
+                  <th>Заказы</th>
+                  <th>Статус</th>
+                  <th>Действия</th>
+                </tr>
+              </thead>
+              <tbody id="usersTable"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="admin-tests" class="tab-content">
+          <div class="admin-card">
+            <h3>Результаты тестов</h3>
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Тип</th>
+                  <th>Результат</th>
+                  <th>Пользователь</th>
+                  <th>Дата</th>
+                </tr>
+              </thead>
+              <tbody id="testsTable"></tbody>
+            </table>
+          </div>
+          <div class="admin-card">
+            <h3>Статистика</h3>
+            <div class="kpi-grid">
+              <div class="kpi">
+                <div class="muted">По типам</div>
+                <div id="testsByType"></div>
+              </div>
+              <div class="kpi">
+                <div class="muted">По результатам</div>
+                <div id="testsByResult"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="admin-analytics" class="tab-content">
+          <div class="admin-card">
+            <h3>Обзор</h3>
+            <div class="kpi-grid" id="analyticsKpis"></div>
+          </div>
+          <div class="admin-card">
+            <h3>Топ товаров</h3>
+            <div id="analyticsTopProducts"></div>
+          </div>
+          <div class="admin-card">
+            <h3>Категории</h3>
+            <div id="analyticsByCategory"></div>
+          </div>
+        </section>
+
+        <div class="admin-footer">Lotus Admin • /admin</div>
+      </section>
+    </main>
+
+    <script src="css/js/api.js"></script>
+    <script src="css/js/admin.js"></script>
+  </body>
+</html>
